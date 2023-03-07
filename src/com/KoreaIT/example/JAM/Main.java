@@ -43,7 +43,7 @@ public class Main {
 				System.out.println("번호	|	제목");
 				
 				for (Article article : articles) {
-					System.out.printf("%d	|	%s\n", article.id, article.title);
+					System.out.printf("%d	|	%d\n", article.id, article.title);
 				}
 			}
 			
