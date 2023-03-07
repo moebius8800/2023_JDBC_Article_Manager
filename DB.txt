@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS jdbc_article_manager;
+CREATE DATABASE jdbc_article_manager;
+USE jdbc_article_manager;
