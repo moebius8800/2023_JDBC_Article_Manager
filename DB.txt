@@ -22,6 +22,9 @@ CREATE TABLE `member`(
 	`name` VARCHAR(50) NOT NULL
 );
 
+# member 테이블의 loginId컬럼 UNIQUE 추가
+ALTER TABLE `member` MODIFY COLUMN loginId VARCHAR(50) NOT NULL UNIQUE;
+
 # article 테스트 데이터
 INSERT INTO article
 SET regDate = NOW(),
