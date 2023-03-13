@@ -23,5 +23,5 @@ public class Article {
 		return "Article [id=" + id + ", regDate=" + regDate + ", updateDate=" + updateDate + ", title=" + title
 				+ ", body=" + body + "]";
 	}
-	
+
 }
