@@ -35,7 +35,6 @@ public class App {
 					String name = null;
 					System.out.println("== 회원 가입 ==");
 					
-					
 
 					while (true) {
 						System.out.printf("로그인 아이디 : ");
