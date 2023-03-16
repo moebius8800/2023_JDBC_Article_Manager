@@ -6,6 +6,8 @@ import java.util.Scanner;
 
 import com.KoreaIT.example.JAM.dto.Article;
 import com.KoreaIT.example.JAM.service.ArticleService;
+import com.KoreaIT.example.JAM.session.Session;
+import com.KoreaIT.example.JAM.util.Util;
 
 public class ArticleController {
 	
@@ -18,14 +20,19 @@ public class ArticleController {
 	}
 
 	public void doWrite() {
+		if (Session.isLogined() == false) {
+			System.out.println("로그인 후 이용해주세요");
+			return;
+		}
+		
 		System.out.println("== 게시물 작성 ==");
 
 		System.out.printf("제목 : ");
 		String title = sc.nextLine();
 		System.out.printf("내용 : ");
 		String body = sc.nextLine();
-
-		int id = articleService.doWrite(title, body);
+		
+		int id = articleService.doWrite(title, body, Session.loginedMemberId);
 
 		System.out.printf("%d번 글이 생성되었습니다\n", id);
 	}
@@ -60,8 +67,8 @@ public class ArticleController {
 		System.out.printf("== %d번 게시물 상세보기 ==\n", id);
 
 		System.out.printf("번호 : %d\n", article.id);
-		System.out.printf("작성날짜 : %s\n", article.regDate);
-		System.out.printf("수정날짜 : %s\n", article.updateDate);
+		System.out.printf("작성날짜 : %s\n", Util.datetimeFormat(article.regDate));
+		System.out.printf("수정날짜 : %s\n", Util.datetimeFormat(article.updateDate));
 		System.out.printf("제목 : %s\n", article.title);
 		System.out.printf("내용 : %s\n", article.body);
 	}
